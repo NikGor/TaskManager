@@ -1,0 +1,55 @@
+{% extends "task_manager/layout.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<div class="container mt-1">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h2 class="my-3">{% trans "Добро пожаловать в Illuminate, ваш лучший менеджер задач" %}</h2>
+      <p class="lead">{% trans "Эффективно управляйте своими задачами с помощью Illuminate. Наш интерфейс, удобный для пользователя, позволяет легко создавать, назначать и отслеживать задачи. Будьте организованы и повышайте свою продуктивность!" %}</p>
+      {% if user.is_authenticated %}
+      <a href="{% url 'tasks:tasks_list' %}" class="btn btn-outline-dark btn-lg my-5">{% trans "Начать" %}</a>
+      {% else %}
+      <a href="{% url 'login' %}" class="btn btn-outline-dark btn-lg">{% trans "Начать" %}</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card border-0">
+        <img src="{% static 'bulb1.png' %}" alt="bulb" class="card-img">
+        <div class="card-body">
+          <p class="card-text text-center">{% trans "Эффективно управляйте своими задачами с помощью Illuminate. Наш интерфейс, удобный для пользователя, позволяет легко создавать, назначать и отслеживать задачи. Никогда больше не упускайте важную задачу!" %}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card border-0">
+        <img src="{% static 'bulb2.png' %}" alt="bulb" class="card-img">
+        <div class="card-body">
+          <p class="card-text text-center">{% trans "Оставайтесь в курсе своих задач с помощью Illuminate. Вы можете назначать статусы своим задачам, чтобы указать их прогресс и приоритет. Используйте метки для категоризации задач по разным критериям." %}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card border-0">
+        <img src="{% static 'bulb3.png' %}" alt="bulb" class="card-img">
+        <div class="card-body">
+          <p class="card-text text-center">{% trans "Легко сотрудничайте с командой с помощью Illuminate. Вы можете легко делиться задачами и назначать исполнителей. Более эффективная работа в команде никогда не была такой простой!" %}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card border-0">
+        <img src="{% static 'bulb4.png' %}" alt="bulb" class="card-img">
+        <div class="card-body">
+          <p class="card-text text-center">{% trans "Откройте для себя мощь управления задачами с помощью Illuminate. Легко создавайте, назначайте и отслеживайте задачи, и повышайте свою продуктивность с удобными фильтрами." %}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mb-5"></div>
+<div class="mb-5"></div>
+{% endblock %}
