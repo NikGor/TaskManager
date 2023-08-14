@@ -51,16 +51,14 @@
           <td>{{ label.name }}</td>
           <td>{{ label.created_at|date:"d.m.Y H:i" }}</td>
           <td>
-<!--<div class="btn-group" role="group" aria-label="Действия">-->
-<!--  <a href="{% url 'labels:label_update' label.id %}" class="btn btn-link">-->
-<!--    <i class="bi bi-pencil text-secondary"></i>-->
-<!--  </a>-->
-<!--  <a href="{% url 'labels:label_delete' label.id %}" class="btn btn-link">-->
-<!--    <i class="bi bi-trash text-secondary"></i>-->
-<!--  </a>-->
-<!--</div>-->
-            <a href="{% url 'labels:label_update' label.id %}">Изменить</a><br>
-            <a href="{% url 'labels:label_delete' label.id %}">Удалить</a>
+            <div class="btn-group" role="group" aria-label="Действия">
+              <a href="{% url 'labels:label_update' label.id %}" class="btn btn-link">
+                <i class="bi bi-pencil text-secondary"></i>
+              </a>
+              <a href="{% url 'labels:label_delete' label.id %}" class="btn btn-link">
+                <i class="bi bi-trash text-secondary"></i>
+              </a>
+            </div>
           </td>
         </tr>
       {% empty %}

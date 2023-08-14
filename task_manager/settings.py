@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'task_manager.statuses',
     'task_manager.tasks',
     'task_manager.labels',
+    'task_manager.projects',
 ]
 
 MIDDLEWARE = [
@@ -101,8 +102,9 @@ LOCALE_PATHS = (
 
 WSGI_APPLICATION = "task_manager.wsgi.application"
 
-
 CSRF_TRUSTED_ORIGINS = ['https://python-project-52-production.up.railway.app']
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 
 # Database

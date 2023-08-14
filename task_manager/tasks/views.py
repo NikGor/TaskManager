@@ -13,6 +13,8 @@ from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.views.generic import DetailView
 
+from ..projects.models import Project
+
 
 class TaskDetailView(CustomLoginRequiredMixin, DetailView):
     model = Task
@@ -36,15 +38,34 @@ class TaskListView(CustomLoginRequiredMixin, FilterView):
         context['statuses'] = Status.objects.all()
         context['users'] = User.objects.all()
         context['labels'] = Label.objects.all()
+        context['projects'] = Project.objects.all()
+        selected_project_id = self.request.session.get('selected_project_id')
+        if selected_project_id:
+            context['selected_project'] = Project.objects.get(id=selected_project_id)
         return context
+
+    def filter_by_project(self, queryset):
+        project_id = self.request.GET.get('project_id')
+        if project_id:
+            self.request.session['selected_project_id'] = project_id
+        else:
+            project_id = self.request.session.get('selected_project_id')
+        if project_id:
+            return queryset.filter(project_id=project_id)
+        return queryset
+
+    def filter_only_mine(self, queryset):
+        only_mine = self.request.GET.get('only_mine')
+        if only_mine:
+            return queryset.filter(author=self.request.user)
+        return queryset
 
     def get_queryset(self):
         queryset = super().get_queryset()
         filterset = self.filterset_class(self.request.GET, queryset=queryset)
         queryset = filterset.qs
-        only_mine = self.request.GET.get('only_mine')
-        if only_mine:
-            queryset = queryset.filter(author=self.request.user)
+        queryset = self.filter_by_project(queryset)
+        queryset = self.filter_only_mine(queryset)
         return queryset
 
 
@@ -65,6 +86,7 @@ class TaskCreateView(CustomLoginRequiredMixin, CreateView):
         context['statuses'] = Status.objects.all()
         context['users'] = User.objects.all()
         context['labels'] = Label.objects.all()
+        context['projects'] = Project.objects.all()
         return context
 
 
@@ -79,6 +101,7 @@ class TaskUpdateView(CustomLoginRequiredMixin, UpdateView):
         context['statuses'] = Status.objects.all()
         context['labels'] = Label.objects.all()
         context['users'] = User.objects.all()
+        context['projects'] = Project.objects.all()
         return context
 
     def form_valid(self, form):

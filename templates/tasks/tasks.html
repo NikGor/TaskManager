@@ -92,16 +92,14 @@
           <td>{{ task.executor.get_full_name|default:task.executor.username }}</td>
           <td>{{ task.created_at|date:"d.m.Y H:i" }}</td>
           <td>
-<!--<div class="btn-group" role="group" aria-label="Действия">-->
-<!--  <a href="{% url 'tasks:task_update' task.id %}" class="btn btn-link">-->
-<!--    <i class="bi bi-pencil text-secondary"></i>-->
-<!--  </a>-->
-<!--  <a href="{% url 'tasks:task_delete' task.id %}" class="btn btn-link">-->
-<!--    <i class="bi bi-trash text-secondary"></i>-->
-<!--  </a>-->
-<!--</div>-->
-              <a href="{% url 'tasks:task_update' task.id %}">Изменить</a><br>
-              <a href="{% url 'tasks:task_delete' task.id %}">Удалить</a>
+            <div class="btn-group" role="group" aria-label="Действия">
+              <a href="{% url 'tasks:task_update' task.id %}" class="btn btn-link">
+                <i class="bi bi-pencil text-secondary"></i>
+              </a>
+              <a href="{% url 'tasks:task_delete' task.id %}" class="btn btn-link">
+                <i class="bi bi-trash text-secondary"></i>
+              </a>
+            </div>
           </td>
         </tr>
       {% empty %}

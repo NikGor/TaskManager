@@ -14,6 +14,15 @@
           <textarea class="form-control" id="id_description" name="description" rows="5"></textarea>
         </div>
         <div class="form-group mt-3 col-md-6">
+            <label for="id_project">{% trans "Проект" %}</label>
+            <select class="form-select" id="id_project" name="project">
+                <option value="" selected> </option>
+                {% for project in projects %}
+                    <option value="{{ project.id }}">{{ project.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group mt-3 col-md-6">
             <label class="form-label" for="id_status">{% trans "Статус" %}</label>
             <select class="form-select" id="id_status" name="status">
                 <option value="" selected> </option>
@@ -43,6 +52,5 @@
             <button type="submit" class="btn btn-outline-dark" name="submit">{% trans "Создать" %}</button>
         </div>
     </form>
-
 </div>
 {% endblock %}

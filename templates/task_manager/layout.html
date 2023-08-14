@@ -12,7 +12,7 @@
 
 <body class="d-flex flex-column min-vh-100">
   {% include 'task_manager/bar.html' %}
-  <nav class="navbar navbar-expand-lg navbar-light bg-white justify-content-center">
+  <nav class="navbar navbar-nav navbar-expand-lg navbar-light bg-white justify-content-center">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
         <img src="{% static 'logo.png' %}" alt="Illuminate Logo" height="60">
@@ -30,6 +30,11 @@
             </a>
           </li>
           {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'projects:projects_list' %}">
+              <i class="bi bi-folder2-open"></i> {% trans "Проекты" %}
+            </a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'statuses:status_list' %}">
               <i class="bi bi-journal-text"></i> {% trans "Статусы" %}
@@ -49,6 +54,16 @@
             <a class="nav-link" href="{% url 'logout' %}">
               <i class="bi bi-box-arrow-right"></i> {% trans "Выход" %}
             </a>
+          </li>
+          <li class="nav-item dropdown  ml-auto">
+              <a class="nav-link dropdown-toggle" href="#" id="projectDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Проект {% if selected_project %}({{ selected_project.name }}){% endif %}
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="projectDropdown">
+                  {% for project in projects %}
+                  <li><a class="dropdown-item" href="{% url 'tasks:tasks_list' %}?project_id={{ project.id }}">{{ project.name }}</a></li>
+                  {% endfor %}
+              </ul>
           </li>
           {% else %}
           <li class="nav-item">

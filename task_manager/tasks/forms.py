@@ -8,7 +8,7 @@ from task_manager.labels.models import Label
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['name', 'description', 'status', 'executor', 'labels']
+        fields = ['name', 'description', 'status', 'executor', 'labels', 'project']
 
 
 class FilterForm(forms.Form):
