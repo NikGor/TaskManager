@@ -1,0 +1,50 @@
+{% extends "task_manager/layout.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<div class="container mt-4">
+
+    <!-- Левая часть: Общая диаграмма -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Общая статистика</h2>
+                    <p><strong>Общее количество задач:</strong> {{ total_tasks }}</p>
+                    <p><strong>Открытые задачи:</strong> {{ total_open_tasks }}</p>
+                    <canvas id="overallChart"></canvas>
+                    <input type="hidden" id="total_tasks" value="{{ total_tasks }}">
+                    <input type="hidden" id="total_open_tasks" value="{{ total_open_tasks }}">
+                </div>
+            </div>
+        </div>
+
+        <!-- Правая часть: Карточки проектов -->
+        <div class="col-md-6">
+            {% for project in projects %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="card-title">{{ project.project_name }}</h3>
+                    <div class="row">
+                        <!-- Левая часть: Текстовая статистика -->
+                        <div class="col-md-8">
+                            <p class="card-text">Общее количество задач: {{ project.total_tasks }}</p>
+                            <p class="card-text">Открытые задачи: {{ project.open_tasks }}</p>
+                        </div>
+                        <!-- Правая часть: Круговая диаграмма для проекта -->
+                        <div class="col-md-4">
+                            <canvas id="projectChart{{ forloop.counter }}" width="100" height="100"></canvas>
+                            <input type="hidden" class="total_tasks" value="{{ project.total_tasks }}">
+                            <input type="hidden" class="open_tasks" value="{{ project.open_tasks }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+<div class="mb-5"></div>
+<div class="mb-5"></div>
+{% endblock %}

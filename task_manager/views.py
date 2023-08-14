@@ -1,5 +1,6 @@
 from django.contrib.auth.views import LoginView as AuthLoginView, LogoutView as AuthLogoutView
 from django.contrib import messages
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView
 from django.utils.translation import gettext as _
@@ -7,6 +8,12 @@ from django.utils.translation import gettext as _
 
 class IndexView(TemplateView):
     template_name = 'task_manager/index.html'
+
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect('/dashboard/')
+        else:
+            return self.render_to_response({})
 
 
 class LoginView(AuthLoginView):

@@ -24,36 +24,22 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav fs-5 my-2">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'users:users' %}">
-              <i class="bi bi-people"></i> {% trans "Пользователи" %}
-            </a>
-          </li>
           {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'projects:projects_list' %}">
-              <i class="bi bi-folder2-open"></i> {% trans "Проекты" %}
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'statuses:status_list' %}">
-              <i class="bi bi-journal-text"></i> {% trans "Статусы" %}
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'labels:label_list' %}">
-              <i class="bi bi-tag"></i> {% trans "Метки" %}
-            </a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'tasks:tasks_list' %}">
               <i class="bi bi-list-task"></i> {% trans "Задачи" %}
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">
-              <i class="bi bi-box-arrow-right"></i> {% trans "Выход" %}
-            </a>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="managementDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Управление
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="managementDropdown">
+                  <li><a class="dropdown-item" href="{% url 'users:users' %}">Пользователи</a></li>
+                  <li><a class="dropdown-item" href="{% url 'projects:projects_list' %}">Проекты</a></li>
+                  <li><a class="dropdown-item" href="{% url 'statuses:status_list' %}">Статусы</a></li>
+                  <li><a class="dropdown-item" href="{% url 'labels:label_list' %}">Метки</a></li>
+              </ul>
           </li>
           <li class="nav-item dropdown  ml-auto">
               <a class="nav-link dropdown-toggle" href="#" id="projectDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -64,6 +50,11 @@
                   <li><a class="dropdown-item" href="{% url 'tasks:tasks_list' %}?project_id={{ project.id }}">{{ project.name }}</a></li>
                   {% endfor %}
               </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">
+              <i class="bi bi-box-arrow-right"></i> {% trans "Выход" %}
+            </a>
           </li>
           {% else %}
           <li class="nav-item">
@@ -96,5 +87,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="{% static 'app.js' %}" defer></script>
 </body>
 </html>
