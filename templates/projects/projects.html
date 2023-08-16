@@ -1,14 +1,9 @@
 {% load i18n %}
 {% block content %}
 <div class="container">
-  <h2 class="my-4">
-    {% trans "Проекты" %}
-  </h2>
-
   <div class="form-group m-4 ml-auto">
     <a href="{% url 'projects:project_create' %}" class="btn btn-outline-dark">{% trans "Создать проект" %}</a>
   </div>
-
   <table class="table table-hover">
     <thead class="bg-light">
         <tr>

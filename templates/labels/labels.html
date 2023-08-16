@@ -1,10 +1,7 @@
 {% load i18n %}
 {% block content %}
 <div class="container">
-  <h2 class="my-4">
-    {% trans "Метки" %}
-  </h2>
-  <div class="d-flex flex-wrap">
+  <div class="d-flex flex-wrap mt-5">
     {% for label in labels %}
     <span class="badge bg-secondary rounded-pill mr-2 mb-2 d-flex align-items-center">
       {{ label.name }}

@@ -36,3 +36,24 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+document.querySelectorAll('#label-pills .btn-pill').forEach(pill => {
+    pill.addEventListener('click', function() {
+        if (this.classList.contains('btn-outline-dark')) {
+            this.classList.remove('btn-outline-dark');
+            this.classList.add('btn-primary');
+        } else {
+            this.classList.remove('btn-primary');
+            this.classList.add('btn-outline-dark');
+        }
+        updateSelectedLabels();
+    });
+});
+
+function updateSelectedLabels() {
+    const selectedLabels = [];
+    document.querySelectorAll('#label-pills .btn-primary').forEach(pill => {
+        selectedLabels.push(pill.getAttribute('data-label-id'));
+    });
+    document.querySelector('#selected-labels').value = selectedLabels.join(',');
+}

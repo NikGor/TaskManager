@@ -54,18 +54,11 @@ class TaskListView(CustomLoginRequiredMixin, FilterView):
             return queryset.filter(project_id=project_id)
         return queryset
 
-    def filter_only_mine(self, queryset):
-        only_mine = self.request.GET.get('only_mine')
-        if only_mine:
-            return queryset.filter(author=self.request.user)
-        return queryset
-
     def get_queryset(self):
         queryset = super().get_queryset()
         filterset = self.filterset_class(self.request.GET, queryset=queryset)
         queryset = filterset.qs
         queryset = self.filter_by_project(queryset)
-        queryset = self.filter_only_mine(queryset)
         return queryset
 
 
