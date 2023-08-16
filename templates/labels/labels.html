@@ -1,73 +1,29 @@
-{% extends 'task_manager/layout.html' %}
 {% load i18n %}
 {% block content %}
 <div class="container">
-  <h1 class="my-4">
+  <h2 class="my-4">
     {% trans "Метки" %}
-  </h1>
+  </h2>
 
-  <div class="form-group m-4 ml-auto">
-    <a href="{% url 'labels:label_create' %}" class="btn btn-outline-dark">{% trans "Создать метку" %}</a>
+  <!-- Отображение меток в виде pills -->
+  <div class="d-flex flex-wrap">
+    {% for label in labels %}
+    <span class="badge bg-secondary rounded-pill mr-2 mb-2 d-flex align-items-center">
+      {{ label.name }}
+      <a href="{% url 'labels:label_update' label.id %}" class="btn btn-link btn-sm ml-2 p-0">
+        <i class="bi bi-pencil text-white"></i>
+      </a>
+      <a href="{% url 'labels:label_delete' label.id %}" class="btn btn-link btn-sm ml-2 p-0">
+        <i class="bi bi-trash text-white"></i>
+      </a>
+    </span>
+    {% empty %}
+    <p>{% trans "Нет меток." %}</p>
+    {% endfor %}
+    <a href="{% url 'labels:label_create' %}" class="text-secondary" style="font-size: 24px; transition: color 0.3s;">
+        <i class="bi bi-plus-circle"></i>
+    </a>
   </div>
-
-  <!-- Форма фильтрации -->
-  <form method="get" class="mb-4 mt-3 col-md-6">
-    <div class="form-row mb-3">
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Имя метки" name="name">
-      </div>
-    </div>
-    <div class="form-row mb-3">
-      <div class="col">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="not_used" name="not_used">
-          <label class="form-check-label" for="not_used">
-            Только неиспользованные метки
-          </label>
-        </div>
-      </div>
-    </div>
-    <div class="form-row mb-3">
-      <div class="col">
-        <button type="submit" class="btn btn-outline-dark">Фильтровать</button>
-      </div>
-    </div>
-  </form>
-
-
-  <table class="table table-hover">
-    <thead class="bg-light">
-        <tr>
-            <th width="10%">{% trans "ID" %}</th>
-            <th width="40%">{% trans "Имя" %}</th>
-            <th width="30%">{% trans "Дата создания" %}</th>
-            <th width="20%"></th>
-        </tr>
-    </thead>
-    <tbody>
-      {% for label in labels %}
-        <tr>
-          <td>{{ label.id }}</td>
-          <td>{{ label.name }}</td>
-          <td>{{ label.created_at|date:"d.m.Y H:i" }}</td>
-          <td>
-            <div class="btn-group" role="group" aria-label="Действия">
-              <a href="{% url 'labels:label_update' label.id %}" class="btn btn-link">
-                <i class="bi bi-pencil text-secondary"></i>
-              </a>
-              <a href="{% url 'labels:label_delete' label.id %}" class="btn btn-link">
-                <i class="bi bi-trash text-secondary"></i>
-              </a>
-            </div>
-          </td>
-        </tr>
-      {% empty %}
-        <tr>
-          <td colspan="4">{% trans "Нет меток." %}</td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
 </div>
 <div class="mb-5"></div>
 {% endblock %}

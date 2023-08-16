@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView
+from task_manager.labels.models import Label
 from task_manager.projects.models import Project
 from task_manager.statuses.models import Status
 from task_manager.users.models import User
@@ -27,6 +28,7 @@ class SettingsView(TemplateView):
         context['projects'] = Project.objects.all()
         context['statuses'] = Status.objects.all()
         context['users'] = User.objects.all()
+        context['labels'] = Label.objects.all()
         return context
 
 
