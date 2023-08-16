@@ -18,7 +18,7 @@ class ProjectCreateView(CustomLoginRequiredMixin, CreateView):
     model = Project
     form_class = ProjectForm
     template_name = 'projects/project_create.html'
-    success_url = reverse_lazy('projects:projects_list')
+    success_url = reverse_lazy('settings')
 
     def form_valid(self, form):
         form.instance.created_by = self.request.user
@@ -30,7 +30,7 @@ class ProjectUpdateView(CustomLoginRequiredMixin, UpdateView):
     model = Project
     form_class = ProjectForm
     template_name = 'projects/project_update.html'
-    success_url = reverse_lazy('projects:projects_list')
+    success_url = reverse_lazy('settings')
 
     def form_valid(self, form):
         messages.success(self.request, _('Проект успешно обновлен'))
@@ -40,7 +40,7 @@ class ProjectUpdateView(CustomLoginRequiredMixin, UpdateView):
 class ProjectDeleteView(CustomLoginRequiredMixin, DeleteView):
     model = Project
     template_name = 'projects/project_delete.html'
-    success_url = reverse_lazy('projects:projects_list')
+    success_url = reverse_lazy('settings')
 
     def form_valid(self, form):
         self.object = self.get_object()

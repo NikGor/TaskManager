@@ -30,7 +30,7 @@ class LabelCreateView(CustomLoginRequiredMixin, CreateView):
     model = Label
     form_class = LabelForm
     template_name = 'labels/label_create.html'
-    success_url = reverse_lazy('labels:label_list')
+    success_url = reverse_lazy('settings')
 
     def form_valid(self, form):
         messages.success(self.request, _('Метка успешно создана'))
@@ -41,7 +41,7 @@ class LabelUpdateView(CustomLoginRequiredMixin, UpdateView):
     model = Label
     form_class = LabelForm
     template_name = 'labels/label_update.html'
-    success_url = reverse_lazy('labels:label_list')
+    success_url = reverse_lazy('settings')
 
     def form_valid(self, form):
         messages.success(self.request, _('Метка успешно изменена'))
@@ -51,7 +51,7 @@ class LabelUpdateView(CustomLoginRequiredMixin, UpdateView):
 class LabelDeleteView(CustomLoginRequiredMixin, DeleteView):
     model = Label
     template_name = 'labels/label_delete.html'
-    success_url = reverse_lazy('labels:label_list')
+    success_url = reverse_lazy('settings')
 
     def form_valid(self, form):
         self.object = self.get_object()

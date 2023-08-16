@@ -38,7 +38,7 @@ class UpdateUserView(CustomLoginRequiredMixin, UpdateView):
     model = User
     form_class = UserUpdateForm
     template_name = 'users/update_user.html'
-    success_url = reverse_lazy('users:users')
+    success_url = reverse_lazy('settings')
 
     def dispatch(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -46,7 +46,7 @@ class UpdateUserView(CustomLoginRequiredMixin, UpdateView):
             return super().dispatch(request, *args, **kwargs)
         else:
             messages.error(self.request, _("У вас нет прав для изменения другого пользователя."))
-            return redirect('users:users')
+            return redirect('settings')
 
     def form_valid(self, form):
         form.save()
@@ -64,7 +64,7 @@ class UpdateUserView(CustomLoginRequiredMixin, UpdateView):
 class DeleteUserView(CustomLoginRequiredMixin, DeleteView):
     model = User
     template_name = 'users/delete_user.html'
-    success_url = reverse_lazy('users:users')
+    success_url = reverse_lazy('settings')
 
     def dispatch(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -72,7 +72,7 @@ class DeleteUserView(CustomLoginRequiredMixin, DeleteView):
             return super().dispatch(request, *args, **kwargs)
         else:
             messages.error(self.request, _("У вас нет прав для изменения другого пользователя."))
-            return redirect('users:users')
+            return redirect('settings')
 
     def form_valid(self, form):
         messages.success(self.request, _("Пользователь успешно удален"))

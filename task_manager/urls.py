@@ -29,5 +29,5 @@ urlpatterns = [
     path('labels/', include('task_manager.labels.urls')),
     path('projects/', include('task_manager.projects.urls')),
     path('dashboard/', include('task_manager.dashboard.urls')),
-    path('settings/', SettingsView.as_view(), name='settings_page'),
+    path('settings/', SettingsView.as_view(), name='settings'),
 ]

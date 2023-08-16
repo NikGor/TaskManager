@@ -5,17 +5,36 @@
 <div class="container mt-4">
     <h1>Настройки</h1>
 
-    <div class="mt-4">
-        {% include 'projects/projects.html' %}
-    </div>
-    <div class="mt-4">
-        {% include 'statuses/statuses.html' %}
-    </div>
-    <div class="mt-4">
-        {% include 'users/users.html' %}
-    </div>
-    <div class="mt-4">
-        {% include 'labels/labels.html' %}
+    <!-- Вкладки -->
+    <ul class="nav nav-tabs mt-4" id="settingsTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="projects-tab" data-toggle="tab" href="#projects" role="tab" aria-controls="projects" aria-selected="true">Проекты</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="statuses-tab" data-toggle="tab" href="#statuses" role="tab" aria-controls="statuses" aria-selected="false">Статусы</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="users-tab" data-toggle="tab" href="#users" role="tab" aria-controls="users" aria-selected="false">Пользователи</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="labels-tab" data-toggle="tab" href="#labels" role="tab" aria-controls="labels" aria-selected="false">Лейблы</a>
+        </li>
+    </ul>
+
+    <!-- Содержимое вкладок -->
+    <div class="tab-content" id="settingsTabsContent">
+        <div class="tab-pane fade show active" id="projects" role="tabpanel" aria-labelledby="projects-tab">
+            {% include 'projects/projects.html' %}
+        </div>
+        <div class="tab-pane fade" id="statuses" role="tabpanel" aria-labelledby="statuses-tab">
+            {% include 'statuses/statuses.html' %}
+        </div>
+        <div class="tab-pane fade" id="users" role="tabpanel" aria-labelledby="users-tab">
+            {% include 'users/users.html' %}
+        </div>
+        <div class="tab-pane fade" id="labels" role="tabpanel" aria-labelledby="labels-tab">
+            {% include 'labels/labels.html' %}
+        </div>
     </div>
 </div>
 
