@@ -1,10 +1,9 @@
-{% extends 'task_manager/layout.html' %}
 {% load i18n %}
 {% block content %}
 <div class="container">
-  <h1 class="my-4">
+  <h2 class="my-4">
     {% trans "Статусы" %}
-  </h1>
+  </h2>
 
   <div class="form-group m-4 ml-auto">
     <a href="{% url 'statuses:status_create' %}" class="btn btn-outline-dark">{% trans "Создать статус" %}</a>

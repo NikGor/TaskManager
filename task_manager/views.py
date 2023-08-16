@@ -3,6 +3,9 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView
+from task_manager.projects.models import Project
+from task_manager.statuses.models import Status
+from task_manager.users.models import User
 from django.utils.translation import gettext as _
 
 
@@ -14,6 +17,17 @@ class IndexView(TemplateView):
             return redirect('/dashboard/')
         else:
             return self.render_to_response({})
+
+
+class SettingsView(TemplateView):
+    template_name = "task_manager/settings.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['projects'] = Project.objects.all()
+        context['statuses'] = Status.objects.all()
+        context['users'] = User.objects.all()
+        return context
 
 
 class LoginView(AuthLoginView):

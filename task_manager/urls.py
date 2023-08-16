@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from task_manager.views import IndexView, LoginView, LogoutView
+from task_manager.views import IndexView, LoginView, LogoutView, SettingsView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -29,4 +29,5 @@ urlpatterns = [
     path('labels/', include('task_manager.labels.urls')),
     path('projects/', include('task_manager.projects.urls')),
     path('dashboard/', include('task_manager.dashboard.urls')),
+    path('settings/', SettingsView.as_view(), name='settings_page'),
 ]

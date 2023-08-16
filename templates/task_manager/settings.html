@@ -1,0 +1,19 @@
+{% extends 'task_manager/layout.html' %}
+{% load i18n %}
+{% block content %}
+
+<div class="container mt-4">
+    <h1>Настройки</h1>
+
+    <div class="mt-4">
+        {% include 'projects/projects.html' %}
+    </div>
+    <div class="mt-4">
+        {% include 'statuses/statuses.html' %}
+    </div>
+    <div class="mt-4">
+        {% include 'users/users.html' %}
+    </div>
+</div>
+
+{% endblock %}
