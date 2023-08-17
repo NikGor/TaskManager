@@ -88,13 +88,6 @@ TEMPLATES = [
     },
 ]
 
-ROLLBAR = {
-    'access_token': os.getenv('ROLLBAR_ACCESS_TOKEN'),
-    'environment': 'development' if DEBUG else 'production',
-    'code_version': '1.0',
-    'root': BASE_DIR,
-}
-
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
@@ -102,7 +95,7 @@ LOCALE_PATHS = (
 
 WSGI_APPLICATION = "task_manager.wsgi.application"
 
-CSRF_TRUSTED_ORIGINS = ['https://python-project-52-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://taskmanager-production-ed20.up.railway.app']
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
