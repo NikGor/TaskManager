@@ -84,40 +84,5 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="{% static 'app.js' %}" defer></script>
-<script>
-    // JavaScript для обработки нажатий на пилсы
-    document.querySelectorAll('#label-pills .btn-pill').forEach(pill => {
-        pill.addEventListener('click', function() {
-            if (this.classList.contains('btn-outline-dark')) {
-                this.classList.remove('btn-outline-dark');
-                this.classList.add('btn-primary');
-            } else {
-                this.classList.remove('btn-primary');
-                this.classList.add('btn-outline-dark');
-            }
-            updateSelectedLabels();
-        });
-    });
-
-    function updateSelectedLabels() {
-        const selectedLabels = [];
-        document.querySelectorAll('#label-pills .btn-primary').forEach(pill => {
-            selectedLabels.push(pill.getAttribute('data-label-id'));
-        });
-        document.querySelector('#selected-labels').value = selectedLabels.join(',');
-    }
-
-    // Устанавливаем цвет для выбранных меток при загрузке страницы
-    window.onload = function() {
-        const selectedLabels = document.querySelector('#selected-labels').value.split(',');
-        selectedLabels.forEach(labelId => {
-            const pill = document.querySelector(`#label-pills .btn-pill[data-label-id="${labelId}"]`);
-            if (pill) {
-                pill.classList.remove('btn-outline-dark');
-                pill.classList.add('btn-primary');
-            }
-        });
-    }
-</script>
 </body>
 </html>

@@ -67,7 +67,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 
 
@@ -136,17 +135,12 @@ LOGGING = {
         'console': {
             'class': 'logging.StreamHandler',
         },
-        'rollbar': {
-            'level': 'ERROR',
-            'class': 'rollbar.logger.RollbarHandler',
-        },
     },
     'root': {
-        'handlers': ['console', 'rollbar'],
+        'handlers': ['console'],
         'level': 'DEBUG',
     },
 }
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
