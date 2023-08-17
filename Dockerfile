@@ -14,7 +14,7 @@ COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 # copy project
-COPY python-project-52 /app/
+COPY . /app/
 
 EXPOSE 8000
 
