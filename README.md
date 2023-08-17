@@ -1,4 +1,4 @@
-![GitHub Workflow Status](https://github.com/NikGor/python-project-52/actions/workflows/python-app.yml/badge.svg)
+![GitHub Workflow Status](https://github.com/NikGor/TaskManager/actions/workflows/python-app.yml/badge.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/c50951bb34435f5411b2/maintainability)](https://codeclimate.com/github/NikGor/python-project-52/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/c50951bb34435f5411b2/test_coverage)](https://codeclimate.com/github/NikGor/python-project-52/test_coverage)
 
