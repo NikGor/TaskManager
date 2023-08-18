@@ -1,21 +1,20 @@
-# pull official base image
+# Use an official Python runtime as a parent image
 FROM python:3.10
 
-# set work directory
+# Set the working directory in the container to /app
 WORKDIR /app
 
-# set environment variables: prevent python to write pyc files and buffering stdout/stderr
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+# Add the current directory contents into the container at /app
+ADD . /app
 
-# install dependencies
-RUN pip install --upgrade pip
-COPY ./requirements.txt /app/requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+# Install poetry
+RUN pip install poetry
 
-# copy project
-COPY . /app/
+# Use poetry to install dependencies
+RUN poetry config virtualenvs.create false \
+  && poetry install --no-interaction --no-ansi
 
+# Expose the port the app runs in
 EXPOSE 8000
 
 # Define the command to run the app
