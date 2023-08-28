@@ -3,12 +3,13 @@ from .models import Task
 from task_manager.statuses.models import Status
 from task_manager.users.models import User
 from task_manager.labels.models import Label
+from task_manager.priorities.models import Priority
 
 
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['name', 'description', 'status', 'executor', 'labels', 'project']
+        fields = ['name', 'description', 'status', 'priority', 'executor', 'labels', 'project']
 
 
 class FilterForm(forms.Form):
@@ -18,6 +19,9 @@ class FilterForm(forms.Form):
     status = forms.ModelChoiceField(queryset=Status.objects.all(),
                                     required=False,
                                     empty_label="---------")
+    priority = forms.ModelChoiceField(queryset=Priority.objects.all(),
+                                      required=False,
+                                      empty_label="---------")
     executor = forms.ModelChoiceField(queryset=User.objects.all(),
                                       required=False,
                                       empty_label="---------")

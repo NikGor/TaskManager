@@ -12,8 +12,8 @@ from task_manager.labels.models import Label
 from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.views.generic import DetailView
-
-from ..projects.models import Project
+from task_manager.priorities.models import Priority
+from task_manager.projects.models import Project
 
 
 class TaskDetailView(CustomLoginRequiredMixin, DetailView):
@@ -36,6 +36,7 @@ class TaskListView(CustomLoginRequiredMixin, FilterView):
         context = super().get_context_data(**kwargs)
         context['form'] = FilterForm(self.request.GET)
         context['statuses'] = Status.objects.all()
+        context['priorities'] = Priority.objects.all()
         context['users'] = User.objects.all()
         context['labels'] = Label.objects.all()
         context['projects'] = Project.objects.all()
@@ -77,6 +78,7 @@ class TaskCreateView(CustomLoginRequiredMixin, CreateView):
         context = super().get_context_data(**kwargs)
         context['form'] = FilterForm(self.request.GET)
         context['statuses'] = Status.objects.all()
+        context['priorities'] = Priority.objects.all()
         context['users'] = User.objects.all()
         context['labels'] = Label.objects.all()
         context['projects'] = Project.objects.all()
@@ -92,6 +94,7 @@ class TaskUpdateView(CustomLoginRequiredMixin, UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['statuses'] = Status.objects.all()
+        context['priorities'] = Priority.objects.all()
         context['labels'] = Label.objects.all()
         context['users'] = User.objects.all()
         context['projects'] = Project.objects.all()

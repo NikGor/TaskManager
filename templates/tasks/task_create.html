@@ -32,6 +32,15 @@
             </select>
         </div>
         <div class="form-group mt-3 col-md-6">
+            <label class="form-label" for="id_priority">{% trans "Приоритет" %}</label>
+            <select class="form-select" id="id_priority" name="priority">
+                <option value="" selected> </option>
+                {% for priority in priorities %}
+                    <option value="{{ priority.id }}">{{ priority.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group mt-3 col-md-6">
             <label for="id_executor" class="form-label">{% trans "Исполнитель" %}</label>
             <select class="form-select" id="id_executor" name="executor">
                 <option value="" selected> </option>

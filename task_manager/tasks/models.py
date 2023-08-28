@@ -9,6 +9,7 @@ class Task(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
     status = models.ForeignKey('statuses.Status', on_delete=models.CASCADE)
+    priority = models.ForeignKey('priorities.Priority', on_delete=models.CASCADE)
     labels = models.ManyToManyField(Label, related_name='tasks', blank=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL,
                                on_delete=models.CASCADE,

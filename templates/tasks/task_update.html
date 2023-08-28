@@ -31,6 +31,14 @@
             </select>
         </div>
         <div class="form-group mt-3 col-md-6">
+            <label for="id_priority">{% trans "Приоритет" %}</label>
+            <select class="form-select" id="id_priority" name="priority">
+                {% for priority in priorities %}
+                    <option value="{{ priority.id }}" {% if priority == task.priority %}selected{% endif %}>{{ priority.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group mt-3 col-md-6">
             <label for="id_executor">{% trans "Исполнитель" %}</label>
             <select class="form-select" id="id_executor" name="executor">
                 {% for user in users %}

@@ -1,6 +1,7 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.messages import get_messages
+from task_manager.priorities.models import Priority
 from task_manager.tasks.models import Task
 from task_manager.users.models import User
 from task_manager.statuses.models import Status
@@ -16,11 +17,13 @@ class TaskCRUDTest(TestCase):
         self.test_user1 = User.objects.create_user(username='DarkSideLord', password='SithLord123')
         self.test_user2 = User.objects.create_user(username='CrazyHarley', password='Puddin123')
         self.test_status = Status.objects.create(name='teststatus')
+        self.test_priority = Priority.objects.create(name='testpriority')
         self.test_label = Label.objects.create(name='testlabel')
         self.test_task = Task.objects.create(
             name='testtask',
             description='testdescription',
             status=self.test_status,
+            priority=self.test_priority,
             author=self.test_user1,
             executor=self.test_user2,
         )
@@ -31,6 +34,7 @@ class TaskCRUDTest(TestCase):
             'name': 'newtask',
             'description': 'newdescription',
             'status': self.test_status.id,
+            'priority': self.test_priority.id,
             'labels': [self.test_label.id],
             'author': self.test_user1.id,
             'executor': self.test_user1.id,
@@ -46,6 +50,7 @@ class TaskCRUDTest(TestCase):
             'name': 'updatedtask',
             'description': 'updateddescription',
             'status': self.test_status.id,
+            'priority': self.test_priority.id,
             'labels': [self.test_label.id],
         })
         self.assertEqual(response.status_code, 302)
@@ -75,6 +80,7 @@ class TaskCRUDTest(TestCase):
             name='testtask2',
             description='testdescription2',
             status=self.test_status,
+            priority=self.test_priority,
             author=self.test_user1,
             executor=self.test_user2,
         )
@@ -82,7 +88,8 @@ class TaskCRUDTest(TestCase):
             name='testtask3',
             description='testdescription3',
             status=self.test_status,
-            author=self.test_user2,  # отличается от test_user1
+            priority=self.test_priority,
+            author=self.test_user2,
             executor=self.test_user1,
         )
         test_task2 == test_task3  # чтобы обойти ошибку линтера что переменные не используются
