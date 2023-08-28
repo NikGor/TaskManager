@@ -1,6 +1,0 @@
-/* Стили для центрирования меню */
-.menu-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
