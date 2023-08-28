@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'task_manager.labels',
     'task_manager.projects',
     'task_manager.dashboard',
+    'task_manager.priorities',
 ]
 
 MIDDLEWARE = [
