@@ -32,16 +32,6 @@
               <i class="bi bi-list-task"></i> {% trans "Задачи" %}
             </a>
           </li>
-          <li class="nav-item dropdown  ml-auto">
-              <a class="nav-link dropdown-toggle" href="#" id="projectDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Проект {% if selected_project %}({{ selected_project.name }}){% endif %}
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="projectDropdown">
-                  {% for project in projects %}
-                  <li><a class="dropdown-item" href="{% url 'tasks:tasks_list' %}?project_id={{ project.id }}">{{ project.name }}</a></li>
-                  {% endfor %}
-              </ul>
-          </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'settings' %}">Настройки</a>
           </li>

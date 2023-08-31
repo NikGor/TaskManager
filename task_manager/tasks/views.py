@@ -40,26 +40,15 @@ class TaskListView(CustomLoginRequiredMixin, FilterView):
         context['users'] = User.objects.all()
         context['labels'] = Label.objects.all()
         context['projects'] = Project.objects.all()
-        selected_project_id = self.request.session.get('selected_project_id')
-        if selected_project_id:
-            context['selected_project'] = Project.objects.get(id=selected_project_id)
         return context
-
-    def filter_by_project(self, queryset):
-        project_id = self.request.GET.get('project_id')
-        if project_id:
-            self.request.session['selected_project_id'] = project_id
-        else:
-            project_id = self.request.session.get('selected_project_id')
-        if project_id:
-            return queryset.filter(project_id=project_id)
-        return queryset
 
     def get_queryset(self):
         queryset = super().get_queryset()
         filterset = self.filterset_class(self.request.GET, queryset=queryset)
         queryset = filterset.qs
-        queryset = self.filter_by_project(queryset)
+        is_closed = self.request.GET.get('is_closed', None)
+        if is_closed == 'on':
+            queryset = queryset.filter(is_closed=False)
         return queryset
 
 
