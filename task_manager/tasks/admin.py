@@ -9,10 +9,10 @@ class LabelInline(admin.StackedInline):
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'description', 'status', 'priority', 'project')
+    list_display = ('id', 'name', 'description', 'status', 'priority', 'project', 'is_closed')
     list_display_links = ('id', 'name')
     search_fields = ('name', 'description')
-    list_filter = ('status', 'project', 'priority')
+    list_filter = ('status', 'project', 'priority', 'is_closed')
     empty_value_display = '-пусто-'
-    list_editable = ('status', 'priority')
+    list_editable = ('status', 'priority', 'is_closed')
     save_on_top = True

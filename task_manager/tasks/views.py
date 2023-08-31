@@ -101,6 +101,10 @@ class TaskUpdateView(CustomLoginRequiredMixin, UpdateView):
         return context
 
     def form_valid(self, form):
+        task = form.instance
+        if task.status.order == 0:
+            task.is_closed = True
+            task.save()
         messages.success(self.request, _('Задача успешно изменена'))
         return super().form_valid(form)
 

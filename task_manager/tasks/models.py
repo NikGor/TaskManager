@@ -20,3 +20,4 @@ class Task(models.Model):
                                  related_name='assigned_tasks',
                                  blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    is_closed = models.BooleanField(default=False)
