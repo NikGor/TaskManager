@@ -1,0 +1,410 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-21 20:54+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: task_manager/labels/views.py:36
+msgid "Метка успешно создана"
+msgstr "Label successfully created"
+
+#: task_manager/labels/views.py:47
+msgid "Метка успешно изменена"
+msgstr "Label successfully updated"
+
+#: task_manager/labels/views.py:59
+msgid "Невозможно удалить метку, связанную с задачами."
+msgstr "Cannot delete a label associated with tasks."
+
+#: task_manager/labels/views.py:61
+msgid "Метка успешно удалена"
+msgstr "Label successfully deleted"
+
+#: task_manager/projects/views.py:25
+msgid "Проект успешно создан"
+msgstr "Project successfully created"
+
+#: task_manager/projects/views.py:36
+msgid "Проект успешно обновлен"
+msgstr "Project successfully updated"
+
+#: task_manager/projects/views.py:48
+msgid "Невозможно удалить проект, связанный с задачами."
+msgstr "Cannot delete a project associated with tasks."
+
+#: task_manager/projects/views.py:51
+msgid "Проект успешно удален"
+msgstr "Project successfully deleted"
+
+#: task_manager/tasks/views.py:63
+msgid "Задача успешно создана"
+msgstr "Task successfully created"
+
+#: task_manager/tasks/views.py:97
+msgid "Задача успешно изменена"
+msgstr "Task successfully updated"
+
+#: task_manager/tasks/views.py:109
+msgid "Вы не можете удалить эту задачу"
+msgstr "You cannot delete this task"
+
+#: task_manager/tasks/views.py:111
+msgid "Задача успешно удалена"
+msgstr "Task successfully deleted"
+
+#: task_manager/users/views.py:27
+msgid "Пользователь успешно зарегистрирован"
+msgstr "User successfully registered"
+
+#: task_manager/users/views.py:48 task_manager/users/views.py:74
+msgid "У вас нет прав для изменения другого пользователя."
+msgstr "You do not have permission to modify another user."
+
+#: task_manager/users/views.py:53
+msgid "Пользователь успешно изменен"
+msgstr "User successfully updated"
+
+#: task_manager/users/views.py:78
+msgid "Пользователь успешно удален"
+msgstr "User successfully deleted"
+
+#: task_manager/users/views.py:100 task_manager/views.py:40
+msgid "Вы залогинены"
+msgstr "You are logged in"
+
+#: task_manager/users/views.py:102
+msgid "Этот аккаунт отключен."
+msgstr "This account is disabled."
+
+#: task_manager/users/views.py:104
+msgid "Неверное имя пользователя или пароль."
+msgstr "Invalid username or password."
+
+#: task_manager/users/views.py:111 task_manager/views.py:57
+msgid "Вы разлогинены"
+msgstr "You are logged out"
+
+#: templates/labels/label_create.html:6
+msgid "Создать метку"
+msgstr "Create label"
+
+#: templates/labels/label_create.html:10 templates/labels/label_update.html:10
+#: templates/projects/project_create.html:10
+#: templates/projects/project_update.html:10
+#: templates/projects/projects.html:11 templates/tasks/task_create.html:9
+#: templates/tasks/task_update.html:9 templates/tasks/tasks.html:77
+#: templates/users/register.html:13 templates/users/update_user.html:9
+msgid "Имя"
+msgstr "Name"
+
+#: templates/labels/label_create.html:14
+#: templates/projects/project_create.html:18
+#: templates/tasks/task_create.html:61
+msgid "Создать"
+msgstr "Create"
+
+#: templates/labels/label_delete.html:8
+msgid "Удалить метку"
+msgstr "Delete label"
+
+#: templates/labels/label_delete.html:14
+#: templates/projects/project_delete.html:10 templates/tasks/task_delete.html:9
+#: templates/users/delete_user.html:9
+msgid "Да, удалить"
+msgstr "Yes, delete"
+
+#: templates/labels/label_delete.html:15
+#: templates/projects/project_delete.html:11
+#: templates/tasks/task_delete.html:10 templates/users/delete_user.html:10
+msgid "Отмена"
+msgstr "Cancel"
+
+#: templates/labels/label_update.html:6
+msgid "Изменение метки"
+msgstr "Edit label"
+
+#: templates/labels/label_update.html:14
+#: templates/projects/project_update.html:18
+#: templates/tasks/task_update.html:58 templates/users/update_user.html:29
+msgid "Изменить"
+msgstr "Edit"
+
+#: templates/labels/labels.html:16
+msgid "Нет меток."
+msgstr "No labels."
+
+#: templates/projects/project_create.html:6 templates/projects/projects.html:5
+msgid "Создать проект"
+msgstr "Create project"
+
+#: templates/projects/project_create.html:14
+#: templates/projects/project_update.html:14
+#: templates/projects/projects.html:13
+msgid "Создатель"
+msgstr "Creator"
+
+#: templates/projects/project_delete.html:6
+msgid "Удаление проекта"
+msgstr "Delete project"
+
+#: templates/projects/project_delete.html:9
+msgid "Вы уверены, что хотите удалить проект"
+msgstr "Are you sure you want to delete the project"
+
+#: templates/projects/project_update.html:6
+msgid "Изменение проекта"
+msgstr "Edit project"
+
+#: templates/projects/projects.html:10 templates/tasks/tasks.html:76
+msgid "ID"
+msgstr "ID"
+
+#: templates/projects/projects.html:12 templates/users/users.html:10
+msgid "Дата создания"
+msgstr "Creation date"
+
+#: templates/projects/projects.html:37
+msgid "Нет проектов."
+msgstr "No projects."
+
+#: templates/task_manager/index.html:8
+msgid "Добро пожаловать в Illuminate, ваш лучший менеджер задач"
+msgstr "Welcome to Illuminate, your best task manager"
+
+#: templates/task_manager/index.html:9
+msgid ""
+"Эффективно управляйте своими задачами с помощью Illuminate. Наш интерфейс, "
+"удобный для пользователя, позволяет легко создавать, назначать и отслеживать "
+"задачи. Будьте организованы и повышайте свою продуктивность!"
+msgstr ""
+"Effectively manage your tasks with Illuminate. Our user-friendly interface "
+"makes it easy to create, assign, and track tasks. Stay organized and boost "
+"your productivity!"
+
+#: templates/task_manager/index.html:11 templates/task_manager/index.html:13
+msgid "Начать"
+msgstr "Get started"
+
+#: templates/task_manager/index.html:23
+msgid ""
+"Эффективно управляйте своими задачами с помощью Illuminate. Наш интерфейс, "
+"удобный для пользователя, позволяет легко создавать, назначать и отслеживать "
+"задачи. Никогда больше не упускайте важную задачу!"
+msgstr ""
+"Effectively manage your tasks with Illuminate. Our user-friendly interface "
+"makes it easy to create, assign, and track tasks. Never miss an important "
+"task again!"
+
+#: templates/task_manager/index.html:31
+msgid ""
+"Оставайтесь в курсе своих задач с помощью Illuminate. Вы можете назначать "
+"статусы своим задачам, чтобы указать их прогресс и приоритет. Используйте "
+"метки для категоризации задач по разным критериям."
+msgstr ""
+"Stay informed about your tasks with Illuminate. You can assign statuses to "
+"your tasks to indicate their progress and priority. Use labels to categorize "
+"tasks based on different criteria."
+
+#: templates/task_manager/index.html:39
+msgid ""
+"Легко сотрудничайте с командой с помощью Illuminate. Вы можете легко "
+"делиться задачами и назначать исполнителей. Более эффективная работа в "
+"команде никогда не была такой простой!"
+msgstr ""
+"Easily collaborate with your team using Illuminate. You can easily share "
+"tasks and assign assignees. Teamwork has never been this easy and efficient!"
+
+#: templates/task_manager/index.html:47
+msgid ""
+"Откройте для себя мощь управления задачами с помощью Illuminate. Легко "
+"создавайте, назначайте и отслеживайте задачи, и повышайте свою "
+"продуктивность с удобными фильтрами."
+msgstr ""
+"Discover the power of task management with Illuminate. Easily create, "
+"assign, and track tasks, and boost your productivity with convenient filters."
+
+#: templates/task_manager/layout.html:32 templates/tasks/tasks.html:7
+msgid "Задачи"
+msgstr "Tasks"
+
+#: templates/task_manager/layout.html:40
+msgid "Выход"
+msgstr "Logout"
+
+#: templates/task_manager/layout.html:46
+msgid "Вход"
+msgstr "Login"
+
+#: templates/task_manager/layout.html:51
+msgid "Регистрация"
+msgstr "Register"
+
+#: templates/task_manager/layout.html:57
+msgid "Язык"
+msgstr "Language"
+
+#: templates/task_manager/layout.html:80
+msgid "Проект выполняется на учебной платформе"
+msgstr "Project is being developed on an educational platform"
+
+#: templates/task_manager/layout.html:81
+msgid "Автор Николай Гордиенко"
+msgstr "Author Nikolai Gordienko"
+
+#: templates/task_manager/login.html:6
+msgid "Вход в систему"
+msgstr "Log in"
+
+#: templates/task_manager/login.html:10 templates/users/register.html:9
+#: templates/users/update_user.html:17 templates/users/users.html:8
+msgid "Имя пользователя"
+msgstr "Username"
+
+#: templates/task_manager/login.html:14 templates/users/register.html:22
+#: templates/users/update_user.html:21
+msgid "Пароль"
+msgstr "Password"
+
+#: templates/task_manager/login.html:18
+msgid "Войти"
+msgstr "Login"
+
+#: templates/task_manager/login.html:21
+msgid "Не зарегистрированы в системе?"
+msgstr "Not registered yet?"
+
+#: templates/task_manager/login.html:22
+msgid "Зарегистрироваться"
+msgstr "Register"
+
+#: templates/tasks/task_create.html:5 templates/tasks/tasks.html:14
+msgid "Создать задачу"
+msgstr "Create task"
+
+#: templates/tasks/task_create.html:13 templates/tasks/task_update.html:13
+msgid "Описание"
+msgstr "Description"
+
+#: templates/tasks/task_create.html:17 templates/tasks/task_update.html:17
+#: templates/tasks/tasks.html:22 templates/tasks/tasks.html:80
+msgid "Проект"
+msgstr "Project"
+
+#: templates/tasks/task_create.html:26 templates/tasks/task_detail.html:26
+#: templates/tasks/task_update.html:26 templates/tasks/tasks.html:40
+#: templates/tasks/tasks.html:78
+msgid "Статус"
+msgstr "Status"
+
+#: templates/tasks/task_create.html:35 templates/tasks/task_detail.html:27
+#: templates/tasks/task_update.html:34 templates/tasks/tasks.html:31
+#: templates/tasks/tasks.html:79
+msgid "Приоритет"
+msgstr "Priority"
+
+#: templates/tasks/task_create.html:44 templates/tasks/task_detail.html:25
+#: templates/tasks/task_update.html:42
+msgid "Исполнитель"
+msgstr "Assignee"
+
+#: templates/tasks/task_create.html:53 templates/tasks/task_update.html:50
+msgid "Метки"
+msgstr "Labels"
+
+#: templates/tasks/task_delete.html:5
+msgid "Удаление задачи"
+msgstr "Delete task"
+
+#: templates/tasks/task_delete.html:8
+msgid "Вы уверены, что хотите удалить задачу"
+msgstr "Are you sure you want to delete the task"
+
+#: templates/tasks/task_detail.html:7
+msgid "Просмотр задачи"
+msgstr "View task"
+
+#: templates/tasks/task_detail.html:14
+msgid "Редактировать"
+msgstr "Edit"
+
+#: templates/tasks/task_detail.html:17
+msgid "Удалить"
+msgstr "Delete"
+
+#: templates/tasks/task_detail.html:30
+msgid "Автор"
+msgstr "Author"
+
+#: templates/tasks/task_detail.html:31
+msgid "Создана"
+msgstr "Created"
+
+#: templates/tasks/task_update.html:5
+msgid "Изменение задачи"
+msgstr "Edit task"
+
+#: templates/tasks/tasks.html:18 templates/tasks/tasks.html:19
+msgid "Имя задачи"
+msgstr "Task name"
+
+#: templates/tasks/tasks.html:53
+msgid "Только открытые задачи"
+msgstr "Only open tasks"
+
+#: templates/tasks/tasks.html:69
+msgid "Показать"
+msgstr "Show"
+
+#: templates/tasks/tasks.html:105
+msgid "Нет задач."
+msgstr "No tasks."
+
+#: templates/users/delete_user.html:5
+msgid "Удаление пользователя"
+msgstr "Delete user"
+
+#: templates/users/delete_user.html:8
+msgid "Вы уверены, что хотите удалить пользователя"
+msgstr "Are you sure you want to delete the user"
+
+#: templates/users/register.html:5
+msgid "Регистрация нового пользователя"
+msgstr "Register a new user"
+
+#: templates/users/register.html:18 templates/users/update_user.html:13
+msgid "Фамилия"
+msgstr "Last name"
+
+#: templates/users/register.html:26 templates/users/update_user.html:25
+msgid "Подтверждение пароля"
+msgstr "Confirm password"
+
+#: templates/users/register.html:30
+msgid "Зарегистрировать"
+msgstr "Register"
+
+#: templates/users/update_user.html:5
+msgid "Изменение пользователя"
+msgstr "Edit user"
+
+#: templates/users/users.html:9
+msgid "Полное имя"
+msgstr "Full name"
+
+#: templates/users/users.html:34
+msgid "Нет пользователей."
+msgstr "No users."
