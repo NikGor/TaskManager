@@ -16,17 +16,29 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
 from task_manager.views import IndexView, LoginView, LogoutView, SettingsView
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
+    # Admin
     path("admin/", admin.site.urls),
-    path('', IndexView.as_view(), name='index'),
+
+    # Auth routes
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
+
+    # Main routes
+    path('', IndexView.as_view(), name='index'),
+    path('settings/', SettingsView.as_view(), name='settings'),
+
+    # App-specific routes
     path('users/', include('task_manager.users.urls')),
     path('tasks/', include('task_manager.tasks.urls')),
     path('labels/', include('task_manager.labels.urls')),
     path('projects/', include('task_manager.projects.urls')),
     path('dashboard/', include('task_manager.dashboard.urls')),
-    path('settings/', SettingsView.as_view(), name='settings'),
+)
+
+urlpatterns += [
+    path('i18n/', include('django.conf.urls.i18n')),
 ]

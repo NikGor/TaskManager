@@ -52,6 +52,23 @@
             </a>
           </li>
           {% endif %}
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="bi bi-translate"></i> {% trans "Язык" %}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="languageDropdown">
+                  <form action="{% url 'set_language' %}" method="post">
+                      {% csrf_token %}
+                      <input name="next" type="hidden" value="{{ request.path }}">
+                      <button class="dropdown-item" name="language" type="submit" value="en">
+                          <i class="bi bi-flag"></i> English
+                      </button>
+                      <button class="dropdown-item" name="language" type="submit" value="ru">
+                          <i class="bi bi-flag"></i> Русский
+                      </button>
+                  </form>
+              </div>
+          </li>
         </ul>
       </div>
     </div>
